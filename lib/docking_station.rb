@@ -1,14 +1,12 @@
+require_relative 'bike_container'
+
 class DockingStation
 
-	def initialize
-		@bikes = []
-	end
+	include BikeContainer
 
-	def bike_count
-		@bikes.count
-	end
-
-	def dock(bike)
-		@bikes << bike
+	def initialize(options = {})
+	self.capacity = options.fetch(:capacity,capacity)
 	end
 end
+
+	

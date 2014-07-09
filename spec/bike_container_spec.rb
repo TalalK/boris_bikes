@@ -1,6 +1,6 @@
 require 'bike_container'
 
-class ContainerHolder; include BikeContainer; end
+class ContainerHolder; include BikeContainer end
 
 describe BikeContainer do 
 
@@ -29,6 +29,7 @@ describe BikeContainer do
 		broken_bike.break!
 		holder.dock(working_bike)
 		holder.dock(broken_bike)
+
 		expect(holder.available_bikes).to eq([working_bike])
 	end
 

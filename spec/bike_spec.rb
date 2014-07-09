@@ -7,4 +7,11 @@ describe Bike do
 		expect(the_bike).not_to be_broken
 	
 	end
+
+	it "Should be able to break" do
+		bike = Bike.new
+		bike.break!
+		expect(bike).to be_broken
+	end
 end
+

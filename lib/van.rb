@@ -7,4 +7,10 @@ class Van
 	 	station.bikes.each {|bike|dock bike if bike.broken?}
 	 end
 
+	 def collect_bikes_from(station)
+	 	station.bikes.each {|bike|dock bike if bike.fixed?}
+	 end
+
+
+
 end

@@ -18,9 +18,13 @@ describe BikeContainer do
 		expect(holder.bike_count).to eq(0)
 	end
 
+	it "Should provide an error message when there is no bike" do
+		expect(lambda {holder.release}).to raise_error "There is no bike!"
+	end
+
 	it "should know when it is full" do
 		expect(holder).not_to be_full
-		10.times { holder.dock(Bike.new) }
+		10.times { holder.dock(bike) }
 		expect(holder).to be_full
 	end
 

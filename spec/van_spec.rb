@@ -11,4 +11,13 @@ describe Van do
 		expect(van.bikes).to eq [broken_bike]
 	end
 
+	it "Should return fixed bikes to docking station" do
+		broken_bike = double :bike, broken?: true
+		fixed_bike = double :bike, broken?: false
+		garage = double :garage, bikes: [broken_bike, fixed_bike]
+		van.return_bikes_to(garage)
+		expect(van.bikes).to eq [fixed_bike]
+	end
+
+
 end

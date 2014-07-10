@@ -18,5 +18,4 @@ describe Garage do
 		garage.fix_all_broken_bikes
 	end
 
-
 end

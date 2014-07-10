@@ -12,14 +12,19 @@ describe BikeContainer do
 		holder.dock(bike)
 		expect(holder.bike_count).to eq(1)
 	end
-		it "Should release a bike" do
+
+	it "Should release a bike" do
 		holder.dock(bike)
 		holder.release(bike)
 		expect(holder.bike_count).to eq(0)
 	end
 
+	it "Should provide an error message if argument is not a bike" do
+		expect(lambda {holder.dock(holder)}).to raise_error(RuntimeError)
+	end
+
 	it "Should provide an error message when there is no bike" do
-		expect(lambda {holder.release}).to raise_error "There is no bike!"
+		expect(lambda {holder.release}).to raise_error(RuntimeError)
 	end
 
 	it "should know when it is full" do
@@ -33,8 +38,6 @@ describe BikeContainer do
 		broken_bike.break!
 		holder.dock(working_bike)
 		holder.dock(broken_bike)
-
 		expect(holder.available_bikes).to eq([working_bike])
 	end
-
 end

@@ -4,7 +4,7 @@ describe Van do
 	let(:van) {Van.new}
 
 	it "Should take broken bikes from docking station" do
-		broken_bike = double :bike, broken?: true
+		broken_bike = double :bike, broken?: true, instance_of?: true
 		fixed_bike = double :bike, broken?: false
 		station = double :station, bikes: [broken_bike, fixed_bike]
 		van.collect_bikes_from(station)
@@ -12,8 +12,8 @@ describe Van do
 	end
 
 	it "Should return fixed bikes to docking station" do
-		broken_bike = double :bike, broken?: true
-		fixed_bike = double :bike, broken?: false
+		broken_bike = double :bike, broken?: true, instance_of?: true
+		fixed_bike = double :bike, broken?: false, instance_of?: true
 		garage = double :garage, bikes: [broken_bike, fixed_bike]
 		van.return_bikes_to(garage)
 		expect(van.bikes).to eq [fixed_bike]

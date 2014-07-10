@@ -1,3 +1,5 @@
+require './lib/bike'
+
 module BikeContainer
 
 	DEFAULT_CAPACITY = 10
@@ -20,6 +22,7 @@ module BikeContainer
 	
 	def dock(bike)
 		raise "Station is full" if full?
+		raise "This station only provides bikes" if !bike.instance_of?(Bike)
 		bikes << bike
 	end
 
